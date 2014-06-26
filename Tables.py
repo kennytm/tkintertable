@@ -859,7 +859,8 @@ class TableCanvas(Canvas):
         #reset multiple selection list
         self.multiplerowlist=[]
         self.multiplerowlist.append(rowclicked)
-        if 0 <= rowclicked < self.rows and 0 <= colclicked < self.cols:
+        if rowclicked is not None and colclicked is not None:
+          if 0 <= rowclicked < self.rows and 0 <= colclicked < self.cols:
             self.setSelectedRow(rowclicked)
             self.setSelectedCol(colclicked)
             self.drawSelectedRect(self.currentrow, self.currentcol)
@@ -973,7 +974,13 @@ class TableCanvas(Canvas):
             else:
                 self.currentcol  = self.currentcol +1
         elif event.keysym == 'Left':
-            self.currentcol  = self.currentcol -1
+            if self.currentcol > 0:
+                self.currentcol  = self.currentcol -1
+            elif self.currentrow > 0:
+                self.currentcol = self.cols - 1
+                self.currentrow -= 1
+            else:
+                return
         self.drawSelectedRect(self.currentrow, self.currentcol)
         coltype = self.model.getColumnType(self.currentcol)
         if coltype == 'text' or coltype == 'number':
@@ -987,6 +994,8 @@ class TableCanvas(Canvas):
         #print 'double click'
         row = self.get_row_clicked(event)
         col = self.get_col_clicked(event)
+        if row is None or col is None:
+            return
         #absrow = self.get_AbsoluteRow(row)
         model=self.getModel()
         cellvalue = model.getCellRecord(row, col)
