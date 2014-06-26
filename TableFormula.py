@@ -20,7 +20,7 @@
 """
 
 #import sys, os
-from Tkinter import *
+from tkinter import *
 from types import *
 import re
 
@@ -38,15 +38,15 @@ class Formula(object):
     def isFormula(cls, rec):
         """Evaluate the cell and return true if its a formula"""
         isform = False
-        if type(rec) is DictType:
-            if rec.has_key('formula'):
+        if isinstance(rec, dict):
+            if 'formula' in rec:
                 isform = True
         return isform
 
     @classmethod
     def getFormula(cls, rec):
         """Get the formula field string"""
-        if not type(rec) is DictType:
+        if not isinstance(rec, dict):
             return None
         string = rec['formula']
         #print string
@@ -104,7 +104,7 @@ class Formula(object):
     def doFormula(cls, cellformula, data):
         """Evaluate the formula for a cell and return the result
            takes a formula dict or just the string as input"""
-        if type(cellformula) is DictType:
+        if isinstance(cellformula, dict):
             cellformula = cellformula['formula']
 
         vals = []
@@ -112,10 +112,10 @@ class Formula(object):
 
         #get cell records into their values
         for i in cells:
-            if type(i) is ListType:
+            if isinstance(i, list):
                 recname, col= i
-                if data.has_key(recname):
-                    if data[recname].has_key(col):
+                if recname in data:
+                    if col in data[recname]:
                         v = data[recname][col]
                         if cls.isFormula(v):
                             #recursive
@@ -125,7 +125,7 @@ class Formula(object):
                         return ''
                 else:
                     return ''
-            elif i== '' or type(i) is IntType or type(i) is FloatType:
+            elif i== '' or isinstance(i, (int, float)):
                 vals.append(i)
             else:
                 return ''

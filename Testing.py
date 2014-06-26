@@ -20,9 +20,9 @@
 """
 
 import random, string
-from Tkinter import *
-from Tables import TableCanvas
-from TableModels import TableModel
+from tkinter import *
+from .Tables import TableCanvas
+from .TableModels import TableModel
 
 """Testing general functionality of tables"""
 
@@ -84,7 +84,7 @@ def test1(root):
     #table.sortTable(columnName='label')
     #remove cols
     model.deleteColumns([0])
-    model.deleteRows(range(0,2))
+    model.deleteRows(list(range(0,2)))
     #table.redrawTable()
     #add rows and cols
     table.addRow(1,label='aaazzz')
@@ -151,7 +151,7 @@ def test4():
     vals = model.getColumnData(columnIndex=0, filters=searchterms)
     #model.getColumns(model.columnNames, filters=searchterms)
     #model.getDict(model.columnNames, filters=searchterms)
-    print '%s found' %len(vals)
+    print('%s found' %len(vals))
     #createTable(model)
     return
 
@@ -178,7 +178,7 @@ def GUITests():
     test3()
     test4()
     #test5()
-    print 'GUI tests done'
+    print('GUI tests done')
     return root
 
 def main():

@@ -19,7 +19,7 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 """
 
-from Tables import TableCanvas, ColumnHeader
+from .Tables import TableCanvas, ColumnHeader
 
 class MyTable(TableCanvas):
      """Sub-class of Tablecanvas, with some changes in behaviour to make

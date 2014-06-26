@@ -21,12 +21,12 @@
 
 import sys, os
 import copy
-from Tkinter import *
+from tkinter import *
 from math import *
 try:
     import numpy
 except:
-    print 'you need numpy to do statistics'
+    print('you need numpy to do statistics')
 
 import matplotlib
 matplotlib.use('TkAgg')
@@ -68,7 +68,7 @@ class pylabPlotter(object):
         try:
             self.setupPlotVars()
         except:
-            print 'no tk running'
+            print('no tk running')
         self.currdata = None
         #self.format = None  #data format
         self.plottitle = ''
@@ -107,7 +107,7 @@ class pylabPlotter(object):
             if len(r)==0:
                 continue
             ax = pylab.subplot(ydim,dim,i)
-            print r
+            print(r)
             for j in range(len(r)):
                 r[j] = float(r[j])
             pylab.hist(r,bins=bins)
@@ -135,7 +135,7 @@ class pylabPlotter(object):
             if len(r)==0:
                 continue
             fig = pylab.subplot(ydim,dim,i)
-            print r
+            print(r)
             for j in range(len(r)):
                 r[j] = float(r[j])
             pylab.pie(r)
@@ -185,7 +185,7 @@ class pylabPlotter(object):
             try:
                 data = self.currdata
             except:
-                print 'no data to plot'
+                print('no data to plot')
                 return
         else:
             self.setData(data)
@@ -211,7 +211,7 @@ class pylabPlotter(object):
                     i+=1
             else:
                 y = pdata[0]
-                x = range(len(y))
+                x = list(range(len(y)))
                 self.doBarChart(x, y, clr='b')
 
         elif self.graphtype == 'XY':
@@ -237,7 +237,7 @@ class pylabPlotter(object):
         pylab.ylabel(self.plotylabel)
         #create legend data
         if self.showlegend == 1:
-            print legendlines
+            print(legendlines)
             pylab.legend(legendlines,seriesnames,
                          loc=self.legendloc)
         if self.grid == 1:
@@ -259,8 +259,8 @@ class pylabPlotter(object):
         return
 
     def saveCurrent(self, filename=None):
-        import tkFileDialog, os
-        filename=tkFileDialog.asksaveasfilename(parent=self.plotprefswin,
+        import tkinter.filedialog, os
+        filename=tkinter.filedialog.asksaveasfilename(parent=self.plotprefswin,
                                                 defaultextension='.png',
                                                 filetypes=[("Png file","*.png"),
                                                            ("All files","*.*")])
@@ -370,9 +370,9 @@ class pylabPlotter(object):
             """Choose color for data series"""
             d=x[0]
             c=x[1]
-            print 'passed', 'd',d, 'c',c
-            import tkColorChooser
-            colour,colour_string = tkColorChooser.askcolor(c,parent=self.plotprefswin)
+            print('passed', 'd',d, 'c',c)
+            import tkinter.colorchooser
+            colour,colour_string = tkinter.colorchooser.askcolor(c,parent=self.plotprefswin)
             if colour != None:
                 self.datacolors[d] = str(colour_string)
                 cbuttons[d].configure(bg=colour_string)
@@ -456,7 +456,7 @@ class pylabPlotter(object):
         Entry(labelsframe,textvariable=self.plotxlabelvar,bg='white',relief=GROOVE).grid(row=1,column=1,padx=2,pady=2)
         Label(labelsframe,text='Y-axis label:').grid(row=2,column=0,padx=2,pady=2)
         Entry(labelsframe,textvariable=self.plotylabelvar,bg='white',relief=GROOVE).grid(row=2,column=1,padx=2,pady=2)
-        print self.currdata
+        print(self.currdata)
         if self.currdata != None:
             #print self.dataseriesvars
             row=row+1
@@ -464,7 +464,7 @@ class pylabPlotter(object):
             seriesframe.grid(row=row,column=0,columnspan=2,sticky='news',padx=2,pady=2)
             #self.dataseriesvars=[]
             if len(self.dataseriesvars) == 0:
-                self.setDataSeries(range(len(self.currdata)))
+                self.setDataSeries(list(range(len(self.currdata))))
             r=1
             sr=1
             cl=0

@@ -19,11 +19,11 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 """
 
-from Tkinter import *
+from tkinter import *
 import types
-import tkSimpleDialog, tkFileDialog, tkMessageBox
+import tkinter.simpledialog, tkinter.filedialog, tkinter.messagebox
 
-class RecordViewDialog(tkSimpleDialog.Dialog):
+class RecordViewDialog(tkinter.simpledialog.Dialog):
     """Dialog for viewing and editing table records"""
 
     def __init__(self, parent, title=None, table=None, row=None):
@@ -35,13 +35,13 @@ class RecordViewDialog(tkSimpleDialog.Dialog):
             self.recname = self.model.getRecName(row)
         else:
             return
-        tkSimpleDialog.Dialog.__init__(self, parent, title)
+        tkinter.simpledialog.Dialog.__init__(self, parent, title)
         return
 
     def body(self, master):
         """Show all record fields in entry fields or labels"""
         model = self.model
-        cols = self.recdata.keys()
+        cols = list(self.recdata.keys())
         self.editable = []
         self.fieldnames = {}
         self.fieldvars = {}
@@ -53,13 +53,13 @@ class RecordViewDialog(tkSimpleDialog.Dialog):
         i=1
         for col in cols:
             self.fieldvars[col] = StringVar()
-            if self.recdata.has_key(col):
+            if col in self.recdata:
                 val = self.recdata[col]
                 self.fieldvars[col].set(val)
             self.fieldnames[col] = Label(master, text=col).grid(row=i,column=0,padx=2,pady=2,sticky='news')
             ent = Entry(master, textvariable=self.fieldvars[col], relief=GROOVE,bg='white')
             ent.grid(row=i,column=1,padx=2,pady=2,sticky='news')
-            if not type(self.recdata[col]) is types.StringType:
+            if not type(self.recdata[col]) is bytes:
                 ent.config(state=DISABLED)
             else:
                 self.editable.append(col)
@@ -81,7 +81,7 @@ class RecordViewDialog(tkSimpleDialog.Dialog):
             colname = model.getColumnName(col)
             if not colname in self.editable:
                 continue
-            if not self.fieldvars.has_key(colname):
+            if colname not in self.fieldvars:
                 continue
             val = self.fieldvars[colname].get()
             model.setValueAt(val, absrow, col)
@@ -90,15 +90,15 @@ class RecordViewDialog(tkSimpleDialog.Dialog):
         self.table.redrawTable()
         return
 
-class MultipleValDialog(tkSimpleDialog.Dialog):
+class MultipleValDialog(tkinter.simpledialog.Dialog):
     """Simple dialog to get multiple values"""
 
     def __init__(self, parent, title=None, initialvalues=None, labels=None, types=None):
-        if labels != None and types != NoneType:
+        if labels is not None and types is not None:
             self.initialvalues = initialvalues
             self.labels = labels
             self.types = types
-        tkSimpleDialog.Dialog.__init__(self, parent, title)
+        tkinter.simpledialog.Dialog.__init__(self, parent, title)
 
     def body(self, master):
 

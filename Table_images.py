@@ -20,7 +20,7 @@
 """
 
 def tableapp_logo():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
               'R0lGODlhegF9AYcAAAEBAQMDBAUFBQcGCAgHBwgHCgkJCQoJDAwLCwwLDw0N'
             +'DQ0LEA0MEQ8OFBAPDxAOFBAQEBEQFhQSEhUVFRIRGBQSGhYUHRgWFhgWHxkY'
@@ -723,7 +723,7 @@ def tableapp_logo():
      return img
 
 def add_row():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAACFfHSZlIixtJzN1Ljd6MTl9Mzp+NEJ3uzyBNj2C'
             +'N0GHOkKIO0iPQEqSQkuTQ0yVRE2WRVGbSFijT12gVV6rVGOlWmOxWXy+dn7B'
@@ -751,7 +751,7 @@ def add_row():
      return img
 
 def add_col():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAADdrGT5wIkx7MUR3a09/e1OMKFePLV+JSWCJSWaO'
             +'T3GXX3y+dlKEw1WGxlaHx1mKyFuKyV6Oy1+Py2OSzmSTzmiW0WqX0W6Z02+b'
@@ -779,7 +779,7 @@ def add_col():
      return img
 
 def del_row():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAAEJ3u3y+dlKEw1aHx12KxVmKyFuKyV6Oy1+Py2OS'
             +'zmSTzmiW0WqX0W6Z02+b1HKe1nSg13Wh13qj2nqk2X2l3H6o3eoRHOwaI+4m'
@@ -807,7 +807,7 @@ def del_row():
      return img
 
 def del_col():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAAHy+dlKEw1WGxlaHx1mKyFuKyV6Oy1+Py2OSzmST'
             +'zmiW0WqX0W6Z02+b1HKe1nSg13Wh13qj2nqk2X2l3H6o3bpDBLhFA7lEA7lF'
@@ -835,7 +835,7 @@ def del_col():
      return img
 
 def new_proj():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAAEJ3u3y+dlKEw1SGxFWGxlaHx12KxVyKxl+MxlmK'
             +'yFuKyV+NyF6Oy1+Py2OSzmSTzmiW0WqX0W6Z02+b1HKe1nSg13Wh13qj2nqk'
@@ -863,7 +863,7 @@ def new_proj():
      return img
 
 def open_proj():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAABV5ABt5AB57AyF9ACV/ACZ+ECR8FUJ3uy2DAS2D'
             +'CTWHCTCHFzyLEESPFkaQGUqRHFKXIleYKFubKV6fOlygPGKdMGOfMWWfMWih'
@@ -891,7 +891,7 @@ def open_proj():
      return img
 
 def save_proj():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAACBarS5fpjppqj5qqzNoukRtq0RwsFd+u1F/w1N/'
             +'wXy+dl2Ev1SBxFWDxliEw1uGx1uKyV2IyF6Oy1+Py2GKx2CJyWGLyWKLyGWN'
@@ -920,7 +920,7 @@ def save_proj():
      return img
 
 def prefs():
-    import Tkinter as tk
+    import tkinter as tk
     img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAAElJSU5OTlFRUVJSUlNTU1hYWFpaWltbW1xcXGFh'
             +'YWJiYmRkZGdnZ2lpaWpqamtra21tbW5ubm9vb3FxcXZ2dnd3d3l5eXp6en5+'
@@ -948,7 +948,7 @@ def prefs():
     return img
 
 def plot():
-    import Tkinter as tk
+    import tkinter as tk
     img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAAC5fpTBiqTBiqjJkrDNmrjRosTVosjZrtTdrtjxy'
             +'vz10wj51wz52xD92xT93xkZwu1prrUJ3xkB4x0F5yUF6ykJ6y0J7zEN8zEN8'
@@ -974,7 +974,7 @@ def plot():
     return img
 
 def plotprefs():
-    import Tkinter as tk
+    import tkinter as tk
     img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAAFU9ETxyvz10wj51wz52xD92xT93xltujUJ3xkB4'
             +'x0F5yUF6ykJ6y0J7zEN8zEN8zUR9zkV+0EV/0XCfvYdfKJxpHYNlK6pkHL56'
@@ -1001,7 +1001,7 @@ def plotprefs():
     return img
 
 def start():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhGAAYAKUAAP///+bm/+Xl/uPj/OHh++Df+d7d993d99vb9dvb9NnZ'
             +'8tnZ5tfW8NTU7tLS69DQ6dDP6c3N58vL5cnJ48fH4MTE3sLC3MDAzL/A2b2+'
@@ -1016,7 +1016,7 @@ def start():
      return img
 
 def end():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhGAAYAKUAAP///+bm/+Xl/uPj/OHh++Df+d7d993d99vb9dvb9NnZ'
             +'8tnZ5tfW8NTU7tLS69DQ6dDP6c3N58vL5cnJ48fH4MTE3sLC3MDAzL/A2b2+'
@@ -1031,7 +1031,7 @@ def end():
      return img
 
 def next():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAACBeHSRjISlpJS9wKjV4LzuANUKIO0WIP0mLREqM'
             +'RUmRQU+ZR1CRSlydVVahTV6hWVypU2KjWmKxWGi4XW2+YXy+dnHDZXTHaIDB'
@@ -1056,7 +1056,7 @@ def next():
      return img
 
 def prev():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAACBeHSRjISlpJS9wKjV4LzuANUKIO0mRQU+ZR1ah'
             +'TVypU2SqW2KxWGi4XXi9cnu+cXy+dnHDZXTHaH7AeIDBeoPBeoLCfYTDfobI'
@@ -1081,7 +1081,7 @@ def prev():
      return img
 
 def search():
-     import Tkinter as tk
+     import tkinter as tk
      img = tk.PhotoImage(format='gif',data=
              'R0lGODlhEAAQAIcAAAAAAHaczXufzXug0H+l05JaEJNbEZVdFJdfGJpiG51l'
             +'H51nIp5mIqNrKKVtK6hwMKpyMq93ObF5PLV9Qbd/RLyES7yNVcWXZMeZZsyi'

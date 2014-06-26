@@ -19,10 +19,10 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 """
 
-from Tkinter import *
+from tkinter import *
 import Pmw
 import os, csv
-import tkFileDialog
+import tkinter.filedialog
 
 class TableImporter:
     """Provides import utility methods for the Table and Table Model classes"""
@@ -50,7 +50,7 @@ class TableImporter:
             parent = self.master,labelpos = 'w',
             label_text = 'Record separator:',
             menubutton_textvariable = self.var_sep,
-            items = self.separator_list.keys(),
+            items = list(self.separator_list.keys()),
             initialitem = ',',
             menubutton_width = 4,
             command= self.update_display)
@@ -88,7 +88,7 @@ class TableImporter:
     def open_File(self, parent):
 
         savedir = os.getcwd()
-        filename=tkFileDialog.askopenfile(defaultextension='.csv',
+        filename=tkinter.filedialog.askopenfile(defaultextension='.csv',
                                                 initialdir=savedir,
                                                 initialfile='',
                                                 filetypes=[("Data file","*.csv"),
@@ -148,8 +148,8 @@ class TableExporter:
         """Export table data to a comma separated file"""
 
         parent=table.parentframe
-        import tkFileDialog
-        filename = tkFileDialog.asksaveasfilename(parent=parent,defaultextension='.csv',
+        import tkinter.filedialog
+        filename = tkinter.filedialog.asksaveasfilename(parent=parent,defaultextension='.csv',
                                                   filetypes=[("CSV files","*.csv")]
                                                   )
         if not filename:
@@ -168,7 +168,7 @@ class TableExporter:
             row.append(collabels[c])
         writer.writerow(row)
 
-        for row in recs.keys():
+        for row in list(recs.keys()):
             writer.writerow(recs[row])
 
         return
